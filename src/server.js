@@ -85,7 +85,7 @@ app.post('/coupon/:id', (req, res) => {
     }, (err,coupon)=>{
         if(err){
             console.log(err);
-            res.sendStatus(500)
+            res.sendStatus(500);
             return;
         }
         if(!coupon){
@@ -115,7 +115,7 @@ app.post('/coupon/:id/redeem', (req, res) => {
     }, (err,coupon)=>{
         if(err){
             console.log(err);
-            res.sendStatus(500)
+            res.sendStatus(500);
             return;
         }
         if(!coupon){
@@ -144,10 +144,10 @@ app.get('/coupon/search/:code', (req, res)=>{
     db.collection('coupons').findOne({code:couponCode}, (err,coupon)=>{
         if(err){
             console.log(err);
-            res.sendStatus(400);
+            res.sendStatus(500);
             return;
         }
-        if(coupon.length === 0){
+        if(coupon === null){
             res.sendStatus(404);
             return;
         }
